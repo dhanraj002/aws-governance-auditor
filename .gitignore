@@ -11,3 +11,6 @@ reports/
 *.tfvars
 .env
 .DS_Store
+node_modules
+*.xlsx
+*.inspect.ndjson

@@ -8,6 +8,8 @@ The tool keeps findings separate from collection failures. An access-denied resp
 
 ## Checks
 
+Related operational workflow: [PHP inventory and reviewed SSM remediation](php-ssm/README.md). This separate tool exports PHP evidence for Excel review and prepares an approval-gated, single-host patch change. The EC2/EBS auditor below remains read-only.
+
 | Rule | Evidence | Interpretation |
 |---|---|---|
 | `SG_PUBLIC_ADMIN` | IPv4/IPv6 `/0` ingress includes TCP 22 or 3389, including ranges and all-protocol rules | Review the group; this alone does not prove internet reachability |
