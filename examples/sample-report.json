@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-23T12:12:05.727389+00:00",
+  "source": "fixture",
+  "account_id": "123456789012",
+  "regions": [
+    "eu-central-1"
+  ],
+  "coverage": [
+    {
+      "region": "eu-central-1",
+      "kind": "security-group",
+      "status": "complete",
+      "count": 1
+    },
+    {
+      "region": "eu-central-1",
+      "kind": "volume",
+      "status": "complete",
+      "count": 2
+    }
+  ],
+  "complete": true,
+  "findings": [
+    {
+      "id": "EBS_UNENCRYPTED:arn:aws:ec2:eu-central-1:123456789012:volume/vol-00000000000000001",
+      "rule": "EBS_UNENCRYPTED",
+      "severity": "high",
+      "resource": "arn:aws:ec2:eu-central-1:123456789012:volume/vol-00000000000000001",
+      "region": "eu-central-1",
+      "summary": "Volume is not encrypted",
+      "evidence": {
+        "encrypted": false
+      },
+      "recommended_action": "Plan an encrypted snapshot/copy and replacement with application-owner approval; encryption is not an in-place toggle.",
+      "status": "active"
+    },
+    {
+      "id": "SG_PUBLIC_ADMIN:arn:aws:ec2:eu-central-1:123456789012:security-group/sg-00000000000000001",
+      "rule": "SG_PUBLIC_ADMIN",
+      "severity": "high",
+      "resource": "arn:aws:ec2:eu-central-1:123456789012:security-group/sg-00000000000000001",
+      "region": "eu-central-1",
+      "summary": "Ingress permits administrative TCP ports from any address",
+      "evidence": {
+        "sources": [
+          {
+            "cidr": "0.0.0.0/0",
+            "port": 22
+          },
+          {
+            "cidr": "::/0",
+            "port": 3389
+          }
+        ]
+      },
+      "recommended_action": "Review group attachments, routes and host controls; prefer Session Manager or approved source ranges. This rule alone does not prove internet reachability.",
+      "status": "active"
+    },
+    {
+      "id": "EBS_UNATTACHED:arn:aws:ec2:eu-central-1:123456789012:volume/vol-00000000000000001",
+      "rule": "EBS_UNATTACHED",
+      "severity": "medium",
+      "resource": "arn:aws:ec2:eu-central-1:123456789012:volume/vol-00000000000000001",
+      "region": "eu-central-1",
+      "summary": "Unattached volume needs an ownership review",
+      "evidence": {
+        "state": "available",
+        "size_gib": 80
+      },
+      "recommended_action": "Check retention, recovery and owner requirements. No deletion or savings estimate is implied.",
+      "status": "active"
+    },
+    {
+      "id": "MISSING_TAGS:arn:aws:ec2:eu-central-1:123456789012:volume/vol-00000000000000001",
+      "rule": "MISSING_TAGS",
+      "severity": "medium",
+      "resource": "arn:aws:ec2:eu-central-1:123456789012:volume/vol-00000000000000001",
+      "region": "eu-central-1",
+      "summary": "Ownership metadata is incomplete",
+      "evidence": {
+        "missing_keys": [
+          "Owner",
+          "CostCentre"
+        ]
+      },
+      "recommended_action": "Identify the owning team before changing or retiring this resource.",
+      "status": "active"
+    }
+  ],
+  "exception_notices": [],
+  "fail_on": "medium",
+  "exit_code": 1
+}

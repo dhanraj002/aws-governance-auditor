@@ -1,0 +1,11 @@
+{
+  "exceptions": [
+    {
+      "rule": "SG_PUBLIC_ADMIN",
+      "resource": "arn:aws:ec2:eu-central-1:123456789012:security-group/sg-00000000000000001",
+      "owner": "platform-team",
+      "reason": "Synthetic example: temporary migration access; replace with a real reviewed exception before live use.",
+      "expires": "2026-11-01"
+    }
+  ]
+}

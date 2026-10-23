@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+reports/
+.terraform/
+*.tfstate*
+*.tfplan
+*.tfvars
+.env
+.DS_Store

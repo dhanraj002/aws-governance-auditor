@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aws-governance-auditor"
+version = "0.1.0"
+description = "Read-only AWS EC2/EBS governance checks with explicit scan coverage and expiring exceptions"
+requires-python = ">=3.11"
+readme = "README.md"
+authors = [{name = "Dhanraj Kumar"}]
+
+[project.optional-dependencies]
+aws = ["boto3>=1.43.117,<2"]
+
+[project.scripts]
+aws-governance-audit = "auditor.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["auditor*"]
