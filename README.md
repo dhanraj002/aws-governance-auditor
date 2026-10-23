@@ -8,7 +8,7 @@ The tool keeps findings separate from collection failures. An access-denied resp
 
 ## Checks
 
-Related operational workflow: [PHP inventory and reviewed SSM remediation](php-ssm/README.md). This separate tool exports PHP evidence for Excel review and prepares an approval-gated, single-host patch change. The EC2/EBS auditor below remains read-only.
+Related operational workflow: [PHP inventory and reviewed SSM remediation](https://github.com/dhanraj002/aws-ssm-php-patch-review). This separate tool exports PHP evidence for Excel review and prepares an approval-gated, single-host patch change. The EC2/EBS auditor below remains read-only.
 
 | Rule | Evidence | Interpretation |
 |---|---|---|

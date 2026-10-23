@@ -19,8 +19,6 @@ jobs:
           python-version: ${{ matrix.python }}
       - run: python -m pip install -c requirements-aws.lock '.[aws]'
       - run: python -m unittest discover -s tests -v
-      - name: PHP SSM inventory and approval gates (offline)
-        run: python -m unittest discover -s php-ssm/tests -v
       - name: Offline demo must report findings
         shell: bash
         run: |
